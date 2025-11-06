@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaBloom - Solução Inteligente para Irrigação</title>
+<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #38b2ac 0%, #319795 100%);
+        }
+        .wave-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .wave-shape svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+        .wave-shape .shape-fill {
+            fill: #FFFFFF;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .sensor-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(56, 178, 172, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(56, 178, 172, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(56, 178, 172, 0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="droplet" class="h-8 w-8 text-teal-600"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-800">AquaBloom</span>
+</div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#sobre" class="text-gray-800 hover:text-teal-600 px-3 py-2 text-sm font-medium">Sobre</a>
+                    <a href="#tecnologia" class="text-gray-800 hover:text-teal-600 px-3 py-2 text-sm font-medium">Tecnologia</a>
+                    <a href="#equipe" class="text-gray-800 hover:text-teal-600 px-3 py-2 text-sm font-medium">Equipe</a>
+                    <a href="#contato" class="text-gray-800 hover:text-teal-600 px-3 py-2 text-sm font-medium">Contato</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#sobre" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-teal-600 hover:bg-gray-50">Sobre</a>
+                <a href="#tecnologia" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-teal-600 hover:bg-gray-50">Tecnologia</a>
+                <a href="#equipe" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-teal-600 hover:bg-gray-50">Equipe</a>
+                <a href="#contato" class="block px-3 py-2 text-base font-medium text-gray-800 hover:text-teal-600 hover:bg-gray-50">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 lg:mt-16 lg:px-8 xl:mt-20">
+                    <div class="sm:text-center lg:text-left">
+                        <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
+                            <span class="block">Irrigação Inteligente</span>
+                            <span class="block text-teal-200">para um futuro sustentável</span>
+                        </h1>
+                        <p class="mt-3 text-base text-teal-100 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                            Nosso sistema de irrigação automático com sensor de umidade está revolucionando a forma como cuidamos das plantas.
+                        </p>
+                        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                            <div class="rounded-md shadow">
+                                <a href="#tecnologia" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-teal-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                                    Saiba Mais
+                                </a>
+</div>
+                            <div class="mt-3 sm:mt-0 sm:ml-3">
+                                <a href="#contato" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal-500 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10">
+                                    Fale Conosco
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <div class="wave-shape">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="py-12 bg-white" id="sobre">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-teal-600 font-semibold tracking-wide uppercase">Sobre o Projeto</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Uma solução escolar para um problema global
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Desenvolvido por estudantes como projeto de ciências, nosso sistema promete revolucionar a agricultura sustentável.
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+                        <div class="p-5">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-teal-500 text-white">
+                                <i data-feather="cloud-rain"></i>
+                            </div>
+                            <div class="mt-5">
+                                <h3 class="text-lg font-medium text-gray-900">Irrigação Precisa</h3>
+                                <p class="mt-2 text-base text-gray-500">
+                                    O sistema fornece água apenas quando necessário, evitando desperdício.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+                        <div class="p-5">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-teal-500 text-white">
+                                <i data-feather="cpu"></i>
+                            </div>
+                            <div class="mt-5">
+                                <h3 class="text-lg font-medium text-gray-900">Tecnologia Acessível</h3>
+                                <p class="mt-2 text-base text-gray-500">
+                                    Componentes de baixo custo tornam a solução viável para pequenos produtores.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+                        <div class="p-5">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-teal-500 text-white">
+                                <i data-feather="refresh-cw" class="h-6 w-6"></i>
+                            </div>
+<div class="mt-5">
+                                <h3 class="text-lg font-medium text-gray-900">Sustentabilidade</h3>
+                                <p class="mt-2 text-base text-gray-500">
+                                    Redução no consumo de água e energia, contribuindo para o meio ambiente.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technology Section -->
+    <div class="bg-gray-50 py-12" id="tecnologia">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-teal-600 font-semibold tracking-wide uppercase">Nossa Tecnologia</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Como funciona nosso sistema
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Componentes Principais</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 text-teal-500">
+                                    <i data-feather="check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    <span class="font-medium">Sensor de Umidade</span> - Detecta os níveis de água no solo
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 text-teal-500">
+                                    <i data-feather="check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    <span class="font-medium">Microcontrolador</span> - Processa os dados e toma decisões
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 text-teal-500">
+                                    <i data-feather="check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">
+                                    <span class="font-medium">Válvula Solenoide</span> - Controla o fluxo de água
+                                </p>
+                            </li>
+</ul>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="http://static.photos/technology/640x360/1" alt="Diagrama do sistema de irrigação" class="rounded-lg shadow-md w-full">
+                        <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-lg shadow-lg">
+                            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-teal-500 text-white sensor-animation">
+                                <i data-feather="activity" class="h-8 w-8"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="py-12 bg-white" id="equipe">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-teal-600 font-semibold tracking-wide uppercase">Nossa Equipe</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Jovens cientistas em ação
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Um grupo de estudantes do ensino médio apaixonados por tecnologia e sustentabilidade.
+                </p>
+            </div>
+                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-8">
+                        <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                            <img class="w-full h-48 object-cover" src="http://static.photos/people/640x360/10" alt="Membro da equipe">
+                            <div class="p-6">
+                                <h3 class="text-lg font-medium text-gray-900">Felipe Lages</h3>
+                                <p class="text-gray-500">18 anos</p>
+=======
+</div>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                            <img class="w-full h-48 object-cover" src="http://static.photos/people/640x360/11" alt="Membro da equipe">
+                            <div class="p-6">
+                                <h3 class="text-lg font-medium text-gray-900">Rafael Siqueira</h3>
+                                <p class="text-gray-500">18 anos</p>
+=======
+</div>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md transitionall duration-300 card-hover">
+                            <img class="w-full h-48 object-cover" src="http://static.photos/people/640x360/12" alt="Membro da equipe">
+                            <div class="p-6">
+                                <h3 class="text-lg font-medium text-gray-900">Tiago Cunha</h3>
+                                <p class="text-gray-500">17 anos</p>
+=======
+</div>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                            <img class="w-full h-48 object-cover" src="http://static.photos/people/640x360/13" alt="Membro da equipe">
+                            <div class="p-6">
+                                <h3 class="text-lg font-medium text-gray-900">Ricardo</h3>
+                                <p class="text-gray-500">17 anos</p>
+=======
+</div>
+                        </div>
+</div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="bg-teal-50 py-12" id="contato">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-teal-600 font-semibold tracking-wide uppercase">Contato</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Interessado em nosso projeto?
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Entre em contato para saber mais sobre nossa solução de irrigação inteligente.
+                </p>
+            </div>
+
+            <div class="mt-10 sm:mt-12">
+                <div class="bg-white shadow-md rounded-lg p-6 max-w-2xl mx-auto">
+                    <form class="space-y-6" id="contactForm" action="https://formsubmit.co/aquabloomempresa@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Novo contato do site AquaBloom">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+                        <input type="hidden" name="_autoresponse" value="Obrigado por entrar em contato com a AquaBloom! Recebemos sua mensagem e responderemos em breve.">
+<div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Nome</label>
+                            <div class="mt-1">
+                                <input type="text" name="name" id="name" class="py-3 px-4 block w-full shadow-sm focus:ring-teal-500 focus:border-teal-500 border-gray-300 rounded-md" placeholder="Seu nome completo">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <div class="mt-1">
+                                <input type="email" name="email" id="email" class="py-3 px-4 block w-full shadow-sm focus:ring-teal-500 focus:border-teal-500 border-gray-300 rounded-md" placeholder="seu@email.com">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Mensagem</label>
+                            <div class="mt-1">
+                                <textarea id="message" name="message" rows="4" class="py-3 px-4 block w-full shadow-sm focus:ring-teal-500 focus:border-teal-500 border-gray-300 rounded-md" placeholder="Conte-nos sobre seu interesse no projeto"></textarea>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+                                Enviar Mensagem
+                            </button>
+                            <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">AquaBloom</h3>
+                                <p class="text-gray-300">
+                        Um projeto escolar que promete revolucionar a irrigação sustentável.
+                    </p>
+
+</div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Links Úteis</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#sobre" class="text-gray-300 hover:text-white">Sobre o Projeto</a></li>
+                        <li><a href="#tecnologia" class="text-gray-300 hover:text-white">Tecnologia</a></li>
+                        <li><a href="#equipe" class="text-gray-300 hover:text-white">Equipe</a></li>
+                        <li><a href="#contato" class="text-gray-300 hover:text-white">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Contato</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-start">
+                            <i data-feather="mail" class="h-5 w-5 mr-2"></i>
+                            <span>aquabloomempresa@gmail.com</span>
+                        </li>
+<li class="flex items-start">
+                            <i data-feather="map-pin" class="h-5 w-5 mr-2"></i>
+                            <span>Escola Secundária da Maia, Maia, Portugal</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 AquaBloom. Todos os direitos reservados.</p>
+</div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+               
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
+
