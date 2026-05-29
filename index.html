@@ -60,6 +60,14 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(237, 137, 54, 0.4);
         }
+        .portfolio-btn {
+            background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+            transition: all 0.3s ease;
+        }
+        .portfolio-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+        }
  .tab-btn { transition: all .25s; }
         .tab-btn.active {
             background: #0d9488;
@@ -173,6 +181,12 @@
                                 <a href="https://drive.google.com/file/d/1bAIH5ygs-DtvzCdrHd6o7x8XQPMGi3mJ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pitch-btn w-full flex items-center justify-center gap-2 px-8 py-3 border border-transparent text-base font-medium rounded-md text-white md:py-4 md:text-lg md:px-10">
                                     <i data-feather="file-text" class="h-5 w-5"></i>
                                     Ver o nosso Pitch
+                                </a>
+                            </div>
+                            <div class="mt-3 sm:mt-0">
+                                <a href="https://drive.google.com/file/d/1JkIPqg5SSzlSBXjJ09Z-iyVyWxV_wLR1/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="portfolio-btn w-full flex items-center justify-center gap-2 px-8 py-3 border border-transparent text-base font-medium rounded-md text-white md:py-4 md:text-lg md:px-10">
+                                    <i data-feather="briefcase" class="h-5 w-5"></i>
+                                    Ver o nosso Portfólio
                                 </a>
                             </div>
                         </div>
@@ -333,13 +347,9 @@
       <button class="tab-btn rounded-full px-5 py-2 text-sm font-semibold bg-gray-100 text-gray-700" data-tab="poupanca">📊 Poupança Anual</button>
     </div>
  
-    <!-- ══════════════════════════════════════
-         TAB 1 — EFICIÊNCIA HÍDRICA
-    ══════════════════════════════════════ -->
+    <!-- TAB 1 — EFICIÊNCIA HÍDRICA -->
     <div id="tab-eficiencia" class="tab-content">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
- 
-        <!-- explicação + fórmula -->
         <div class="sci-card bg-white rounded-2xl shadow p-6 border border-gray-100">
           <div class="flex items-center gap-3 mb-4">
             <div class="h-10 w-10 rounded-xl bg-teal-500 flex items-center justify-center text-white">
@@ -358,26 +368,20 @@
           </div>
           <p class="text-xs text-gray-400">Fonte: FAO Irrigation and Drainage Paper 56 (Allen et al., 1998)</p>
         </div>
- 
-        <!-- calculadora interativa -->
         <div class="sci-card bg-white rounded-2xl shadow p-6 border border-gray-100">
           <h3 class="text-lg font-bold text-gray-800 mb-5">🧮 Calculadora Interativa</h3>
- 
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Água fornecida por rega (mL): <span id="lbl-agua" class="text-teal-600 font-bold">500</span>
           </label>
           <input type="range" min="100" max="2000" step="50" value="500" id="sl-agua" class="w-full mb-4">
- 
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Humidade inicial do solo (%): <span id="lbl-hum" class="text-teal-600 font-bold">30</span>
           </label>
           <input type="range" min="10" max="80" step="1" value="30" id="sl-hum" class="w-full mb-4">
- 
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Humidade alvo (%): <span id="lbl-alvo" class="text-teal-600 font-bold">60</span>
           </label>
           <input type="range" min="30" max="90" step="1" value="60" id="sl-alvo" class="w-full mb-6">
- 
           <div class="grid grid-cols-2 gap-4">
             <div class="result-badge rounded-xl p-4 text-center">
               <div class="text-xs font-semibold uppercase tracking-wide mb-1">Água Necessária</div>
@@ -390,8 +394,6 @@
               <div class="text-xs">%</div>
             </div>
           </div>
- 
-          <!-- barra visual -->
           <div class="mt-5">
             <div class="flex justify-between text-xs text-gray-500 mb-1">
               <span>Desperdício</span><span>Eficiência</span>
@@ -401,16 +403,12 @@
             </div>
           </div>
         </div>
- 
       </div>
     </div>
  
-    <!-- ══════════════════════════════════════
-         TAB 2 — ANÁLISE DO SENSOR
-    ══════════════════════════════════════ -->
+    <!-- TAB 2 — ANÁLISE DO SENSOR -->
     <div id="tab-sensor" class="tab-content hidden">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
- 
         <div class="sci-card bg-white rounded-2xl shadow p-6 border border-gray-100">
           <div class="flex items-center gap-3 mb-4">
             <div class="h-10 w-10 rounded-xl bg-teal-500 flex items-center justify-center text-white">
@@ -430,16 +428,12 @@
           </div>
           <p class="text-xs text-gray-400">Divisor de tensão — Lei de Ohm (Georg Ohm, 1827)</p>
         </div>
- 
-        <!-- simulador de leitura ADC -->
         <div class="sci-card bg-white rounded-2xl shadow p-6 border border-gray-100">
           <h3 class="text-lg font-bold text-gray-800 mb-5">🔬 Simulador Arduino (ADC 10-bit)</h3>
- 
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Valor lido pelo ADC (0–1023): <span id="lbl-adc" class="text-teal-600 font-bold">512</span>
           </label>
           <input type="range" min="0" max="1023" value="512" id="sl-adc" class="w-full mb-6">
- 
           <div class="grid grid-cols-2 gap-4 mb-4">
             <div class="result-badge rounded-xl p-4 text-center">
               <div class="text-xs font-semibold uppercase tracking-wide mb-1">Humidade Estimada</div>
@@ -452,11 +446,7 @@
               <div class="text-xs">V</div>
             </div>
           </div>
- 
-          <!-- estado do solo -->
           <div id="estado-solo" class="mt-2 rounded-xl p-3 text-center font-semibold text-sm"></div>
- 
-          <!-- Thresholds AquaBloom -->
           <div class="mt-5 space-y-2 text-sm">
             <div class="flex items-center gap-2">
               <div class="w-3 h-3 rounded-full bg-red-400"></div>
@@ -468,16 +458,12 @@
             </div>
           </div>
         </div>
- 
       </div>
     </div>
  
-    <!-- ══════════════════════════════════════
-         TAB 3 — EVAPOTRANSPIRAÇÃO
-    ══════════════════════════════════════ -->
+    <!-- TAB 3 — EVAPOTRANSPIRAÇÃO -->
     <div id="tab-evapo" class="tab-content hidden">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
- 
         <div class="sci-card bg-white rounded-2xl shadow p-6 border border-gray-100">
           <div class="flex items-center gap-3 mb-4">
             <div class="h-10 w-10 rounded-xl bg-teal-500 flex items-center justify-center text-white">
@@ -487,7 +473,7 @@
           </div>
           <p class="text-gray-600 mb-4">
             A <strong>evapotranspiração de referência</strong> quantifica a água perdida pelo solo e pelas plantas
-            para a atmosfera. O método de <em>Hargreaves-Samani</em> é simples e usa apenas temperatura — 
+            para a atmosfera. O método de <em>Hargreaves-Samani</em> é simples e usa apenas temperatura —
             ideal para projetos escolares.
           </p>
           <div class="formula-box rounded-lg p-4 mb-4 text-sm">
@@ -499,26 +485,20 @@
           </div>
           <p class="text-xs text-gray-400">Hargreaves & Samani, 1985 — Método simplificado para ET de referência</p>
         </div>
- 
-        <!-- calculadora ET -->
         <div class="sci-card bg-white rounded-2xl shadow p-6 border border-gray-100">
           <h3 class="text-lg font-bold text-gray-800 mb-5">🌡️ Calculadora de ET₀ (Hargreaves)</h3>
- 
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Temperatura Máxima (°C): <span id="lbl-tmax" class="text-teal-600 font-bold">28</span>
           </label>
           <input type="range" min="10" max="45" value="28" id="sl-tmax" class="w-full mb-3">
- 
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Temperatura Mínima (°C): <span id="lbl-tmin" class="text-teal-600 font-bold">15</span>
           </label>
           <input type="range" min="0" max="30" value="15" id="sl-tmin" class="w-full mb-3">
- 
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Radiação extraterrestre Ra (MJ/m²/dia): <span id="lbl-ra" class="text-teal-600 font-bold">25</span>
           </label>
           <input type="range" min="5" max="42" value="25" id="sl-ra" class="w-full mb-6">
- 
           <div class="grid grid-cols-2 gap-4">
             <div class="result-badge rounded-xl p-4 text-center">
               <div class="text-xs font-semibold uppercase tracking-wide mb-1">ET₀</div>
@@ -535,16 +515,12 @@
             💡 Ra típico para Portugal (Maia, ~41°N): 20–35 MJ/m²/dia conforme estação.
           </p>
         </div>
- 
       </div>
     </div>
  
-    <!-- ══════════════════════════════════════
-         TAB 4 — POUPANÇA ANUAL
-    ══════════════════════════════════════ -->
+    <!-- TAB 4 — POUPANÇA ANUAL -->
     <div id="tab-poupanca" class="tab-content hidden">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
- 
         <div class="sci-card bg-white rounded-2xl shadow p-6 border border-gray-100">
           <div class="flex items-center gap-3 mb-4">
             <div class="h-10 w-10 rounded-xl bg-teal-500 flex items-center justify-center text-white">
@@ -567,26 +543,20 @@
             Tarifa média água Portugal (ERSAR 2023): ~1,50 €/m³
           </p>
         </div>
- 
-        <!-- calculadora poupança -->
         <div class="sci-card bg-white rounded-2xl shadow p-6 border border-gray-100">
           <h3 class="text-lg font-bold text-gray-800 mb-5">💰 Calculadora de Poupança Anual</h3>
- 
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Volume por rega (L): <span id="lbl-vol" class="text-teal-600 font-bold">2</span>
           </label>
           <input type="range" min="0.5" max="20" step="0.5" value="2" id="sl-vol" class="w-full mb-3">
- 
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Regas por dia: <span id="lbl-nregas" class="text-teal-600 font-bold">2</span>
           </label>
           <input type="range" min="1" max="6" step="1" value="2" id="sl-nregas" class="w-full mb-3">
- 
           <label class="block text-sm font-medium text-gray-700 mb-1">
             Tarifa da água (€/m³): <span id="lbl-tarifa" class="text-teal-600 font-bold">1.50</span>
           </label>
           <input type="range" min="0.5" max="4" step="0.1" value="1.5" id="sl-tarifa" class="w-full mb-6">
- 
           <div class="grid grid-cols-3 gap-3 mb-5">
             <div class="result-badge rounded-xl p-3 text-center">
               <div class="text-xs font-semibold uppercase tracking-wide mb-1">Manual/ano</div>
@@ -604,8 +574,6 @@
               <div class="text-xs">/ano</div>
             </div>
           </div>
- 
-          <!-- gráfico -->
           <canvas id="chartPoupanca" height="140"></canvas>
         </div>
       </div>
@@ -624,7 +592,9 @@
     </div>
  
   </div>
-</section>    <!-- Team Section -->
+</section>
+
+    <!-- Team Section -->
     <div class="py-12 bg-white" id="equipe">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:text-center mb-12">
@@ -740,6 +710,12 @@
                                 Ver o nosso Pitch
                             </a>
                         </li>
+                        <li>
+                            <a href="https://drive.google.com/file/d/1JkIPqg5SSzlSBXjJ09Z-iyVyWxV_wLR1/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300 flex items-center gap-1">
+                                <i data-feather="briefcase" class="h-4 w-4"></i>
+                                Ver o nosso Portfólio
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div>
@@ -763,21 +739,17 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
 
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-               
-                // Close mobile menu if open
                 const mobileMenu = document.getElementById('mobile-menu');
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
@@ -785,7 +757,6 @@
             });
         });
 
-        // Initialize feather icons
         feather.replace();
     </script>
 <script>
@@ -799,14 +770,12 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     feather.replace();
   });
 });
- 
-/* ══════════════════════════════════
-   TAB 1 — EFICIÊNCIA HÍDRICA
-══════════════════════════════════ */
+
+/* TAB 1 — EFICIÊNCIA HÍDRICA */
 const slAgua  = document.getElementById('sl-agua');
 const slHum   = document.getElementById('sl-hum');
 const slAlvo  = document.getElementById('sl-alvo');
- 
+
 function calcEficiencia() {
   const agua  = +slAgua.value;
   const hum   = +slHum.value;
@@ -814,12 +783,9 @@ function calcEficiencia() {
   document.getElementById('lbl-agua').textContent = agua;
   document.getElementById('lbl-hum').textContent  = hum;
   document.getElementById('lbl-alvo').textContent = alvo;
- 
-  // água necessária proporcional ao défice de humidade (simplificado: 1% humidade ≈ 8 mL para vaso padrão)
   const deficit = Math.max(0, alvo - hum);
   const necessa = Math.round(deficit * 8);
   const iei = agua > 0 ? Math.min(100, Math.round((necessa / agua) * 100)) : 0;
- 
   document.getElementById('res-necessaria').textContent = necessa;
   document.getElementById('res-iei').textContent        = iei + ' %';
   document.getElementById('prog-iei').style.width       = iei + '%';
@@ -828,12 +794,10 @@ function calcEficiencia() {
 }
 [slAgua, slHum, slAlvo].forEach(s => s.addEventListener('input', calcEficiencia));
 calcEficiencia();
- 
-/* ══════════════════════════════════
-   TAB 2 — SENSOR / ADC
-══════════════════════════════════ */
+
+/* TAB 2 — SENSOR / ADC */
 const slAdc = document.getElementById('sl-adc');
- 
+
 function calcSensor() {
   const adc  = +slAdc.value;
   document.getElementById('lbl-adc').textContent = adc;
@@ -841,7 +805,6 @@ function calcSensor() {
   const volt = +((adc / 1023) * 5).toFixed(2);
   document.getElementById('res-hum-adc').textContent = hum + ' %';
   document.getElementById('res-volt').textContent    = volt + ' V';
- 
   const el = document.getElementById('estado-solo');
   if (adc > 700)       { el.textContent='🔴 Solo SECO — Bomba LIGADA';  el.className='mt-2 rounded-xl p-3 text-center font-semibold text-sm bg-red-50 text-red-700 border border-red-200'; }
   else if (adc > 400)  { el.textContent='🟡 Humidade MODERADA — Em observação'; el.className='mt-2 rounded-xl p-3 text-center font-semibold text-sm bg-yellow-50 text-yellow-700 border border-yellow-200'; }
@@ -849,14 +812,12 @@ function calcSensor() {
 }
 slAdc.addEventListener('input', calcSensor);
 calcSensor();
- 
-/* ══════════════════════════════════
-   TAB 3 — EVAPOTRANSPIRAÇÃO
-══════════════════════════════════ */
+
+/* TAB 3 — EVAPOTRANSPIRAÇÃO */
 const slTmax = document.getElementById('sl-tmax');
 const slTmin = document.getElementById('sl-tmin');
 const slRa   = document.getElementById('sl-ra');
- 
+
 function calcET() {
   const tmax = +slTmax.value;
   const tmin = +slTmin.value;
@@ -864,24 +825,21 @@ function calcET() {
   document.getElementById('lbl-tmax').textContent = tmax;
   document.getElementById('lbl-tmin').textContent = tmin;
   document.getElementById('lbl-ra').textContent   = ra;
- 
   if (tmax <= tmin) { document.getElementById('res-et0').textContent = '—'; return; }
   const tmed = (tmax + tmin) / 2;
   const et0  = +(0.0023 * (tmed + 17.8) * Math.pow(tmax - tmin, 0.5) * ra * 0.408).toFixed(2);
   document.getElementById('res-et0').textContent      = et0;
-  document.getElementById('res-agua-repor').textContent = et0; // 1 mm = 1 L/m²
+  document.getElementById('res-agua-repor').textContent = et0;
 }
 [slTmax, slTmin, slRa].forEach(s => s.addEventListener('input', calcET));
 calcET();
- 
-/* ══════════════════════════════════
-   TAB 4 — POUPANÇA
-══════════════════════════════════ */
+
+/* TAB 4 — POUPANÇA */
 const slVol    = document.getElementById('sl-vol');
 const slNregas = document.getElementById('sl-nregas');
 const slTarifa = document.getElementById('sl-tarifa');
 let chartPoupanca = null;
- 
+
 function calcPoupanca() {
   const vol    = +slVol.value;
   const n      = +slNregas.value;
@@ -889,17 +847,13 @@ function calcPoupanca() {
   document.getElementById('lbl-vol').textContent    = vol;
   document.getElementById('lbl-nregas').textContent = n;
   document.getElementById('lbl-tarifa').textContent = tarifa.toFixed(2);
- 
   const manual = Math.round(vol * n * 365);
   const aqua   = Math.round(manual * 0.60);
   const poupL  = manual - aqua;
   const poupE  = +((poupL / 1000) * tarifa).toFixed(2);
- 
   document.getElementById('res-manual').textContent = manual.toLocaleString('pt-PT');
   document.getElementById('res-aqua').textContent   = aqua.toLocaleString('pt-PT');
   document.getElementById('res-euros').textContent  = poupE.toFixed(2) + ' €';
- 
-  // gráfico
   const ctx = document.getElementById('chartPoupanca').getContext('2d');
   if (chartPoupanca) chartPoupanca.destroy();
   chartPoupanca = new Chart(ctx, {
@@ -925,12 +879,8 @@ function calcPoupanca() {
 }
 [slVol, slNregas, slTarifa].forEach(s => s.addEventListener('input', calcPoupanca));
 calcPoupanca();
- 
-// init icons
+
 feather.replace();
 </script>
 </body>
 </html>
-
-
-
